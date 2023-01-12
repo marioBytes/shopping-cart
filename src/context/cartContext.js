@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { products, getProductData } from '../productsStore'
+import { getProductData } from '../productsStore'
 
 export const CartContext = createContext({
   items: [],
@@ -69,7 +69,7 @@ function CartProvider({ children }) {
 
     cartProducts.map(cartItem => {
       const productData = getProductData(cartItem.id)
-      totalCost += (productData.price * cartItem.quantity)
+      return totalCost += (productData.price * cartItem.quantity)
     })
 
     return totalCost
